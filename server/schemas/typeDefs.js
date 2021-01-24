@@ -24,7 +24,14 @@ type Comment {
   createdAt: String
   username: String
 }
+
+type Auth {
+  token: ID!
+  user: User
+}
+
 type Query {
+    me: User
     users: [User]
     user(username: String!): User
     posts(username: String): [Post]
@@ -32,8 +39,10 @@ type Query {
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addPost(postTitle: String!, postText: String!): Post
+    addComment(postId: ID!, commentText: String!): Post
   }
   `;
 
