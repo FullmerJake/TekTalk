@@ -7,6 +7,7 @@ type User {
   email: String
   posts: [Post]
 }
+
 type Post {
   _id: ID
   postTitle: String
@@ -28,6 +29,11 @@ type Query {
     user(username: String!): User
     posts(username: String): [Post]
     post(_id: ID!): Post
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): User
   }
   `;
 
