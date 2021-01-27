@@ -27,6 +27,7 @@
     "@material-ui/icons": "^4.11.2",
     "firebase": "^8.2.4",
     "if-env": "^1.0.4",
+    "react-icons": "^4.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   },

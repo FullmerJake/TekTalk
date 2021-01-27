@@ -1,5 +1,6 @@
 import { Box, HStack, Text } from '@chakra-ui/core';
 import React from 'react';
+import VoteButtons from './vote-buttons';
 
 // Component recieves the post via props
 // Displays its title in a Chakra UI text element
@@ -7,6 +8,7 @@ import React from 'react';
 const Post = ({ post }) => {
     return (
         <HStack key={post.id} w="100%" alignItems="flex-start">
+            <VoteButtons post={post} />
             <Box bg="gray.100" p={4} rounded="md" w="100%">
                 <Text>{post.title}</Text>
             </Box>
