@@ -22,7 +22,7 @@ const AddNewPost = () => {
     // Chakra's useDisclosure hook to help handle common open, close or toggle scenarios.
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [title, setTitle] = useState("");
-    const [isSaving, setSaving] = useState(false);
+    const [isSaving] = useState(false);
 
     const handleSubmit = async() => {
         const date = new Date();
