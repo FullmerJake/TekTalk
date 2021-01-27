@@ -6,22 +6,23 @@ import db from './lib/firebase';
 
 
 const  App = () => {
-  const [posts, setPosts] = useState([]);
-
-  // responsible for fetching the intial set of posts from Firebase
   useEffect(() => {
-    // Hook to handle the initial fethching of post
-    db.collection("post")
-      .orderBy("createdAt", "desc")
-      .get()
-      // Once fetched, store all the posts in the posts state
-      .then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+    // Hook to handle the real-time updating of posts whenever there is a
+    // change in the datastore (https://firebase.google.com/docs/firestore/query-data/listen#view_changes_between_snapshots)
 
-        setPosts(data);
+    db.collection("posts")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((querySnapshot) => {
+        const _posts = [];
+
+        querySnapshot.forEach((doc) => {
+          _posts.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+
+        setPosts(_posts);
       });
   }, []);
 
