@@ -29,6 +29,7 @@
     "apollo-boost": "^0.4.9",
     "apollo-server-express": "^2.19.2",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "firebase": "^8.2.4",
     "framer-motion": "^3.2.2-rc.1",
     "if-env": "^1.0.4",

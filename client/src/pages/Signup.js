@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
+import { Container, VStack, Button, Input } from '@chakra-ui/core';
 
 import Auth from '../utils/auth';
 
@@ -34,49 +35,57 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your username"
-                name="username"
-                type="username"
-                id="username"
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
+    <Container maxW='md' centerContent p={50}>
+      <VStack spacing={8} w="75%">
+        <h4 >Sign Up</h4>
+            <div >
+              <form onSubmit={handleFormSubmit}>
+                <Input
+                  colorScheme=""
+                  variant="outline"
+                  className="form-input"
+                  placeholder="Your username"
+                  name="username"
+                  type="username"
+                  id="username"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <Input
+                  variant="outline"
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  id="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <Input
+                  variant="outline"
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  id="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <Container maxW='md' centerContent p={8}>
+                  <VStack spacing={8} w="100%">
+                    <Button colorScheme="blue" type="submit">
+                      Submit
+                    </Button>               
+                  </VStack>
+                </Container>
+              </form>
 
-            {error && <div>Signup failed</div>}
-          </div>
-        </div>
-      </div>
-    </main>
+              {error && <div>Signup failed</div>}
+            </div>
+      </VStack>
+    </Container>
+
+
   );
 };
 

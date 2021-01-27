@@ -2,9 +2,9 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 
+
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
-import User from './pages/User';
 
 const client = new ApolloClient({
   request: operation => {
@@ -29,7 +29,6 @@ const  App = () => {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/homepage" component={Homepage} />
-            <Route exact path="/user" component={User} />
           </Switch>
         </main>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
+import { Container, VStack, Button, Input } from '@chakra-ui/core';
 
 import Auth from '../utils/auth';
 import Signup from './Signup';
@@ -41,13 +42,13 @@ const Login = props => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
+    <Container maxW='md' centerContent p={8}>
+      <VStack spacing={8} w="100%">
+          <h4>Login</h4>
+          <div>
             <form onSubmit={handleFormSubmit}>
-              <input
+              <Input
+                variant="outline"
                 className="form-input"
                 placeholder="Your email"
                 name="email"
@@ -56,7 +57,8 @@ const Login = props => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <Input
+                variant="outline"
                 className="form-input"
                 placeholder="******"
                 name="password"
@@ -65,18 +67,22 @@ const Login = props => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
+              <Container maxW='md' centerContent p={8}>
+                <VStack spacing={8} w="100%">
+                  <Button colorScheme="blue" type="submit">
+                    Submit
+                  </Button>               
+                </VStack>
+              </Container>
+
             </form>
 
             {error && <div>Login failed</div>}
           </div>
-          <Signup />
-        </div>
-      </div>
-    </main>
-  );
+          <Signup  />
+          </VStack>
+      </Container>
+  )
 };
 
 export default Login;
