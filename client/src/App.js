@@ -1,4 +1,4 @@
-import { Container, Flex, Spinner, VStack } from '@chakra-ui/core';
+import { Container, VStack } from '@chakra-ui/core';
 import React, { useEffect, useState } from 'react';
 import Post from './components/post';
 import Navbar from './components/navbar';
@@ -6,6 +6,8 @@ import db from './lib/firebase';
 
 
 const  App = () => {
+  const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     // Hook to handle the real-time updating of posts whenever there is a
     // change in the datastore (https://firebase.google.com/docs/firestore/query-data/listen#view_changes_between_snapshots)

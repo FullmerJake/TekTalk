@@ -75,7 +75,7 @@ const VoteButtons = ({ post }) => {
 
     return (
         <>
-            <Vstack>
+            <VStack>
                 <IconButton
                     size="lg"
                     colorScheme="purple"
@@ -89,7 +89,7 @@ const VoteButtons = ({ post }) => {
                         {post.upVotesCount}
                     </Text>
                 </IconButton>
-            </Vstack>
+            </VStack>
             <VStack>
                 <IconButton
                     size="lg"
