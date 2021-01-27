@@ -1,14 +1,9 @@
-import React from "react";
-import "./App.css";
-import Feed from "./components/Feed/Feed";
-import Sidebar from "./components/Sidebar/Sidebar";
+import React from 'react';
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+  return(
+    <div>Hello World!</div>
+  )
 }
 
 export default App;
