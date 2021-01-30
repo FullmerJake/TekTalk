@@ -1,47 +1,27 @@
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_POSTS } from '../utils/queries';
 import Post from '../components/post';
 import Navbar from '../components/navbar';
-import { Container, VStack } from '@chakra-ui/core';
+import { Container } from '@chakra-ui/core';
 
-import db from '../lib/firebase';
 
 
 const Homepage = () => {
-    const [posts, setPosts] = useState([]);
+  const { data } = useQuery(QUERY_POSTS);
 
-    useEffect(() => {
-      // Hook to handle the real-time updating of posts whenever there is a
-      // change in the datastore (https://firebase.google.com/docs/firestore/query-data/listen#view_changes_between_snapshots)
-  
-      db.collection("posts")
-        .orderBy("createdAt", "desc")
-        .onSnapshot((querySnapshot) => {
-          const _posts = [];
-  
-          querySnapshot.forEach((doc) => {
-            _posts.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-  
-          setPosts(_posts);
-        });
-    }, []);
+  const posts = data?.posts || [];
+  console.log(posts);
 
     return (
         <>
             <Navbar />
             <Container maxW='md' centerContent p={8}>
-                <VStack spacing={8} w="100%">
-                    {posts.map((post) => (
-                        <Post post={post} key={post.id} />
-                    ))}
-                </VStack>
+                <Post posts={posts} />
             </Container>
         </>
     );
 };
 
 export default Homepage;
+
