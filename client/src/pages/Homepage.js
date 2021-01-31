@@ -12,11 +12,9 @@ const Homepage = () => {
   const posts = data?.posts || [];
 
     return (
-        <>
-            <Container maxW='md' centerContent p={8}>
-                <Post posts={posts} />
-            </Container>
-        </>
+        <Container maxW='md' centerContent p={8}>
+            <Post posts={posts} />
+        </Container>
     );
 };
 

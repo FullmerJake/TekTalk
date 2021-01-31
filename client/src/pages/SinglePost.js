@@ -6,7 +6,7 @@ import { Container, Box, Text, Heading } from '@chakra-ui/core';
 
 import CommentList from '../components/comment-list';
 
-const SinglePost = props => {
+const SinglePost = () => {
 
   const { id: postId } = useParams();
 
