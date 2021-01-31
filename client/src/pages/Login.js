@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
-import { Container, VStack, Button, Input } from '@chakra-ui/core';
+import { Container, VStack, Button, Input, Heading } from '@chakra-ui/core';
 
 import Auth from '../utils/auth';
 import Signup from './Signup';
@@ -44,7 +44,7 @@ const Login = props => {
   return (
     <Container maxW='md' centerContent p={8}>
       <VStack spacing={8} w="100%">
-          <h4>Login</h4>
+        <Heading as="h2" size="xl">Login</Heading>
           <div>
             <form onSubmit={handleFormSubmit}>
               <Input

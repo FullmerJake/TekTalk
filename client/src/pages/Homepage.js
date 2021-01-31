@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../utils/queries';
 import Post from '../components/post';
-import { Container } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 
 
 
@@ -12,11 +12,10 @@ const Homepage = () => {
   const posts = data?.posts || [];
 
     return (
-        <>
-            <Container maxW='md' centerContent p={8}>
-                <Post posts={posts} />
-            </Container>
-        </>
+        <Box p={4} rounded="md" w="80%" margin="auto">
+            <Heading as="h2" size="2xl" textDecoration="underline">Recent Posts</Heading>
+            <Post posts={posts} />
+        </Box>
     );
 };
 

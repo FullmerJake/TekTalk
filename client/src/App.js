@@ -7,6 +7,7 @@ import Navbar from './components/navbar'
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
 import SinglePost from './pages/SinglePost';
+import Profile from './pages/Profile';
 
 const client = new ApolloClient({
   request: operation => {
@@ -31,6 +32,7 @@ const  App = () => {
         <main>
           <Switch>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/login" component={Login} />
           </Switch>

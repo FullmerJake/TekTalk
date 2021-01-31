@@ -1,22 +1,25 @@
 import React from 'react';
-import { Container, Box, Text, HStack, Heading } from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
+import { Box, Text, HStack, Heading } from '@chakra-ui/core';
 
 const CommentList = ({ comments }) => {
   return (
-    <Container>
+    <Box p={4} rounded="md" w="80%" margin="auto">
       <Heading as="h3" size="lg" textDecoration="underline">Comments</Heading>
       {comments &&
           comments.map(comment => (
           <HStack key={comment._id} w="100%" alignItems="flex-start">
               {/* <VoteButtons post={post} /> */}
               <Box bg="gray.100" p={4} rounded="md" w="100%" margin="15px">
-              <Heading as="h4" size="md" textDecoration="underline">{comment.username}</Heading>
-                  <Text>{comment.commentText}</Text>
-                  <Text>{comment.createdAt}</Text>
+                <Heading as="h4" size="md" textDecoration="underline">{' '}
+                  <Link to={`/profile/${comment.username}`}>{comment.username}</Link> 
+                </Heading>
+                <Text>{comment.commentText}</Text>
+                <Text>{comment.createdAt}</Text>
               </Box>
           </HStack>
       ))}
-    </Container>
+    </Box>
   );
 };
 
