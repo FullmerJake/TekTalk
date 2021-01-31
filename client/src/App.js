@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 
 import Navbar from './components/navbar'
+
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
+import SinglePost from './pages/SinglePost';
 
 const client = new ApolloClient({
   request: operation => {
@@ -29,6 +31,7 @@ const  App = () => {
         <main>
           <Switch>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </main>

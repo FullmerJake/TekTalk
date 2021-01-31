@@ -20,12 +20,12 @@ const Navbar = () => {
             wrap="wrap"  
             padding="4rem"  
             bg="gray.900"  
-            color="teal.300"  
+            color="white"  
             borderBottom="1px solid black"   
         >  
             <Flex align="center" mr={5}>
             <Link to="/">
-                <Heading as="h1" fontSize="100px" letterSpacing={"-.1rem"}>  
+                <Heading as="h1" fontSize="100px" letterSpacing={"-.1rem"} >  
                     TekTalk  
                 </Heading> 
                 </Link> 
@@ -35,7 +35,7 @@ const Navbar = () => {
                 display="flex"  
                 width="auto"  
                 alignItems="center"  
-                color="teal.300" 
+                color="white" 
                 fontSize="30px"
             >  
             {Auth.loggedIn() ? (

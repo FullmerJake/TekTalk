@@ -10,7 +10,6 @@ const Homepage = () => {
   const { data } = useQuery(QUERY_POSTS);
 
   const posts = data?.posts || [];
-  console.log(posts);
 
     return (
         <>
