@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Box, Text, HStack, Heading } from '@chakra-ui/core';
+import { Box, Text, HStack, Heading } from '@chakra-ui/core';
 
 const CommentList = ({ comments }) => {
   return (
-    <Container>
+    <Box p={4} rounded="md" w="80%" margin="auto">
       <Heading as="h3" size="lg" textDecoration="underline">Comments</Heading>
       {comments &&
           comments.map(comment => (
@@ -19,7 +19,7 @@ const CommentList = ({ comments }) => {
               </Box>
           </HStack>
       ))}
-    </Container>
+    </Box>
   );
 };
 

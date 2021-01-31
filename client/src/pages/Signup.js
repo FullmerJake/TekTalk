@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
-import { Container, VStack, Button, Input } from '@chakra-ui/core';
+import { Container, VStack, Button, Input, Heading } from '@chakra-ui/core';
 
 import Auth from '../utils/auth';
 
@@ -37,7 +37,7 @@ const Signup = () => {
   return (
     <Container maxW='md' centerContent p={50}>
       <VStack spacing={8} w="75%">
-        <h4 >Sign Up</h4>
+      <Heading as="h2" size="xl">Sign Up</Heading>
             <div >
               <form onSubmit={handleFormSubmit}>
                 <Input

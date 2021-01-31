@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Container, Heading } from '@chakra-ui/core';
+import { Box, HStack, Text, Heading } from '@chakra-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import VoteButtons from './vote-buttons';
@@ -10,7 +10,7 @@ const Post = ({ posts }) => {
     }
 
     return (
-        <Box>
+        <Box >
             {posts &&
                 posts.map(post => (
                 <HStack key={post._id} w="100%" alignItems="flex-start">
@@ -20,7 +20,7 @@ const Post = ({ posts }) => {
                             <Link to={`/post/${post._id}`}>{post.postTitle}</Link> 
                         </Heading>
                         <Text>{post.postText}</Text>
-                        <Text>````
+                        <Text>
                             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
                         {' '}posted on {post.createdAt}</Text>
                     </Box>
