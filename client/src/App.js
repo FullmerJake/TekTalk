@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
 
-function App() {
+
+import Login from './pages/Login';
+import Homepage from './pages/Homepage';
+
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
+  uri: '/graphql'
+});
+
+const  App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <ApolloProvider client={client}>
+    <Router>
+      <div className="App"> 
+        <main>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/homepage" component={Homepage} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
+    </ApolloProvider>
   );
 }
 
