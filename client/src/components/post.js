@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Container } from '@chakra-ui/core';
+import { Box, HStack, Text, Container, Heading } from '@chakra-ui/core';
 import React from 'react';
 import VoteButtons from './vote-buttons';
 
@@ -13,10 +13,11 @@ const Post = ({ posts }) => {
             {posts &&
                 posts.map(post => (
                 <HStack key={post._id} w="100%" alignItems="flex-start">
-                    <VoteButtons post={post} />
+                    {/* <VoteButtons post={post} /> */}
                     <Box bg="gray.100" p={4} rounded="md" w="100%" margin="15px">
-                        <Text textDecoration="underline">{post.postTitle}</Text>
+                        <Heading as="h2" size="2xl" textDecoration="underline">{post.postTitle}</Heading>
                         <Text>{post.postText}</Text>
+                        <Text>Posted by {post.username} on {post.createdAt}</Text>
                     </Box>
                 </HStack>
             ))}

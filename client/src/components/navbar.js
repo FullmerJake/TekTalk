@@ -1,17 +1,58 @@
-import { Box, Container, Flex } from '@chakra-ui/core';
+import { Box, Heading, Flex } from '@chakra-ui/core';
 import React from 'react';
-import AddNewPost from './add-new-post';
+import { Link } from 'react-router-dom';
+
+import Auth from '../utils/auth';
 
 const Navbar = () => {
-    return (
-        <Box position="sticky" top={0} p={4} bg="gray.100" zIndex={1}>
-            <Container maxW="md" centerContent>
-                <Flex justifyContent="flex-end" w="100%" position="sticky" top={0}>
-                    <AddNewPost />
-                </Flex>
-            </Container>
-        </Box>
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+      };
+      
+
+    return (  
+        <Flex  
+            as="nav"  
+            align="center"  
+            justify="space-between"  
+            wrap="wrap"  
+            padding="4rem"  
+            bg="gray.900"  
+            color="white"  
+            borderBottom="1px solid black"   
+        >  
+            <Flex align="center" mr={5}>
+            <Link to="/">
+                <Heading as="h1" fontSize="100px" letterSpacing={"-.1rem"} >  
+                    TekTalk  
+                </Heading> 
+                </Link> 
+            </Flex>  
+  
+            <Box  
+                display="flex"  
+                width="auto"  
+                alignItems="center"  
+                color="white" 
+                fontSize="30px"
+            >  
+            {Auth.loggedIn() ? (
+                <>
+                    <Link to="/profile" style={{ marginRight: 40 }}>Profile</Link>
+                    <a href="/" onClick={logout}>Logout</a>
+                </>
+            ) : (
+                <>
+                    {/* <Link to="/homepage" style={{ marginRight: 40 }}>Home</Link>    */}
+                    <Link to="/login" style={{ marginRight: 40 }}>Login</Link>  
+                </>
+              )} 
+            </Box>  
+        </Flex>  
     );
+ 
 };
 
 export default Navbar;

@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/core';
 
 import React, {useState} from 'react';
-import db from '../lib/firebase';
 
 // AddNewPost component resonsible for opening a modal to add a new post. 
 const AddNewPost = () => {
