@@ -13,10 +13,11 @@ const Post = ({ posts }) => {
             {posts &&
                 posts.map(post => (
                 <HStack key={post._id} w="100%" alignItems="flex-start">
-                    <VoteButtons post={post} />
+                    {/* <VoteButtons post={post} /> */}
                     <Box bg="gray.100" p={4} rounded="md" w="100%" margin="15px">
-                        <Text textDecoration="underline">{post.postTitle}</Text>
+                        <Text fontSize="30px" textDecoration="underline">{post.postTitle}</Text>
                         <Text>{post.postText}</Text>
+                        <Text>Posted by {post.username} on {post.createdAt}</Text>
                     </Box>
                 </HStack>
             ))}

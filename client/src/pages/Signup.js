@@ -80,7 +80,7 @@ const Signup = () => {
                 </Container>
               </form>
 
-              {error && <div>Signup failed</div>}
+              {error && <div>Sign up failed!</div>}
             </div>
       </VStack>
     </Container>
