@@ -53,7 +53,7 @@ const Login = props => {
                 placeholder="Your email"
                 name="email"
                 type="email"
-                id="email"
+                id="login-email"
                 value={formState.email}
                 onChange={handleChange}
               />
@@ -63,7 +63,7 @@ const Login = props => {
                 placeholder="******"
                 name="password"
                 type="password"
-                id="password"
+                id="login-password"
                 value={formState.password}
                 onChange={handleChange}
               />

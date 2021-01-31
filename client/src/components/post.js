@@ -5,13 +5,14 @@ import VoteButtons from './vote-buttons';
 
 const Post = ({ posts }) => {
     if (!posts.length) {
-        return <h3>No Posts Yet</h3>;
+        return <Text>No Posts Yet</Text>;
     }
 
     return (
         <Container>
-            {posts.map(post => (
-                <HStack key={post.id} w="100%" alignItems="flex-start">
+            {posts &&
+                posts.map(post => (
+                <HStack key={post._id} w="100%" alignItems="flex-start">
                     <VoteButtons post={post} />
                     <Box bg="gray.100" p={4} rounded="md" w="100%" margin="15px">
                         <Text textDecoration="underline">{post.postTitle}</Text>

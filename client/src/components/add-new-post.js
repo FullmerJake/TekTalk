@@ -66,7 +66,7 @@ const AddNewPost = () => {
                                 <Button
                                     onClick={handleSubmit}
                                     colorScheme="blue"
-                                    disabled={!title.trim()}
+                                    // disabled={!title.trim()}
                                     isLoading={isSaving}
                                 >
                                     Save
