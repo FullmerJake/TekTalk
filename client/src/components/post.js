@@ -20,7 +20,7 @@ const Post = ({ posts }) => {
                             <Link to={`/post/${post._id}`}>{post.postTitle}</Link> 
                         </Heading>
                         <Text>{post.postText}</Text>
-                        <Text>
+                        <Text>````
                             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
                         {' '}posted on {post.createdAt}</Text>
                     </Box>
