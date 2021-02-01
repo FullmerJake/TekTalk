@@ -69,7 +69,7 @@ const Login = props => {
               />
               <Container maxW='md' centerContent p={8}>
                 <VStack spacing={8} w="100%">
-                  <Button colorScheme="blue" type="submit">
+                  <Button colorScheme="blue" type="submit" id="tiktok-btn">
                     Submit
                   </Button>               
                 </VStack>

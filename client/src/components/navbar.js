@@ -21,9 +21,9 @@ const Navbar = () => {
             justify="space-between"  
             wrap="wrap"  
             padding="4rem"  
-            bg="gray.900"  
+            bg="black"  
             color="white"  
-            borderBottom="1px solid black"   
+            borderBottom="4px solid #25F4EE"   
         >  
             <Flex align="center" mr={5}>
             <Link to="/">
