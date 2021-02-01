@@ -52,7 +52,7 @@ const AddNewPost = () => {
     };
 
     const handleChange = event => {
-        if(event.target.value.length <= 280) {
+        if(event.target.value.length <= 1500) {
             setText(event.target.value);
             setCharacterCount(event.target.value.length);
         }
@@ -99,8 +99,8 @@ const AddNewPost = () => {
                                     value={postText}
                                     onChange={handleChange}
                                 />
-                                <p className={`m-0 ${characterCount === 280 ? 'text-error' : ''}`}>
-                                Character Count: {characterCount}/280</p>
+                                <p className={`m-0 ${characterCount === 1500 ? 'text-error' : ''}`}>
+                                Character Count: {characterCount}/1500</p>
                                 {error && <span className="ml-2">{''}You must add text to your post!</span>}
                             </FormControl>
                         </ModalBody>

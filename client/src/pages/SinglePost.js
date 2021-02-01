@@ -4,8 +4,10 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POST } from '../utils/queries';
 import { Box, Text, Heading } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
+import Auth from '../utils/auth'
 
 import CommentList from '../components/comment-list';
+import AddComment from '../components/add-comment';
 
 const SinglePost = () => {
 
@@ -26,6 +28,7 @@ const SinglePost = () => {
             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
           {' '}posted on {post.createdAt}</Text>
       </Box>
+      {Auth.loggedIn() && <AddComment postId={post._id} />}
       {post.commentCount > 0 && <CommentList comments={post.comments} />}
     </Box>
   )

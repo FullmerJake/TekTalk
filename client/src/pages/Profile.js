@@ -18,7 +18,7 @@ const Profile = props => {
   });
 
   const user = data?.me || data?.user || {};
-  console.log(user);
+  
   if (
     Auth.loggedIn() &&
     Auth.getProfile().data.username === userParam
@@ -28,7 +28,7 @@ const Profile = props => {
  
   return (
     <Box p={4} rounded="md" w="80%" margin="auto">
-      <Heading as="h2" size="3xl">{userParam ? `${user.username}` : 'Your Profile'} profile.</Heading>
+      <Heading as="h2" size="3xl">{userParam ? `${user.username}` : 'My Profile'}</Heading>
       <Heading as="h2" size="xl">Posts:</Heading>
       <Post posts={user.posts} />
       <AddNewPost/>
