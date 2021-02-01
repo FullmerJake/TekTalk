@@ -23,7 +23,7 @@ const Post = ({ posts }) => {
                         <Text>
                             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
                         {' '}posted on {post.createdAt}</Text>
-                        <Text>{post.commentCount} comments</Text>
+                        <Link to={`/post/${post._id}`}>{post.commentCount} comments</Link>
                     </Box>
                 </HStack>
             ))}

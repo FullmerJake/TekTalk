@@ -15,7 +15,8 @@ const Navbar = () => {
       
 
     return (  
-        <Flex  
+        <Flex 
+            // w='100%'
             as="nav"  
             align="center"  
             justify="space-between"  

@@ -14,7 +14,7 @@ const CommentList = ({ comments }) => {
                 <Heading as="h4" size="md" textDecoration="underline">{' '}
                   <Link to={`/profile/${comment.username}`}>{comment.username}</Link> 
                 </Heading>
-                <Text>{comment.commentText}</Text>
+                <Text py={5}>{comment.commentText}</Text>
                 <Text>{comment.createdAt}</Text>
               </Box>
           </HStack>
