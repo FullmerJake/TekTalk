@@ -77,27 +77,29 @@ const AddNewPost = () => {
 
     return (
         <>
-            <Button onClick={onOpen} colorScheme="blue">
+            <Button onClick={onOpen} colorScheme="blue" id="tiktok-btn">
                 Add new post
             </Button>
 
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay>
                     <ModalContent>
-                        <ModalHeader>Add new Post</ModalHeader>
+                        <ModalHeader id="tiktok-head">Add new Post</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
                             <FormControl id="post-text">
-                                <FormLabel>Post Title</FormLabel>
+                                <FormLabel id="tiktok-head">Post Title</FormLabel>
                                 <Input 
                                     type="post-title"
                                     value={postTitle}
                                     onChange={handleChangeTitle}
+                                    id="tiktok-input"
                                 />
                                 <Textarea 
                                     type="post-text"
                                     value={postText}
                                     onChange={handleChange}
+                                    id="tiktok-input"
                                 />
                                 <p className={`m-0 ${characterCount === 1500 ? 'text-error' : ''}`}>
                                 Character Count: {characterCount}/1500</p>
@@ -106,10 +108,11 @@ const AddNewPost = () => {
                         </ModalBody>
                         <ModalFooter>
                             <HStack spacing={4}>
-                                <Button onClick={onClose}>Close</Button>
+                                <Button onClick={onClose} id="tiktok-btn">Close</Button>
                                 <Button
                                     onClick={handleSubmit}
-                                    colorScheme="blue"
+                                    colorScheme="black"
+                                    id="tiktok-btn"
                                 >
                                     Save
                                 </Button>

@@ -1,0 +1,29 @@
+h1 {
+    text-shadow: -4px 0 1px #25F4EE, 4px 0 1px #FE2C55;
+}
+
+h2 {
+    color: #000000;
+    text-shadow: -2px 1px #25F4EE, 2px 0 1px #FE2C55;
+}
+
+.css-lcsidk > a {
+    text-shadow: -2px 0 1px #25F4EE, 2px 0 1px #FE2C55;
+}
+
+#tiktok-head {
+    text-shadow: -1px 0 1px #25F4EE, 1px 0 1px #FE2C55;
+}
+
+#tiktok-btn {
+    background-color: #FE2C55;
+    color: #FFFFFF;
+    border: none;
+}
+
+.css-1g0vxf8, #login-email, #login-password, #username, #signup-email, #signup-password, #tiktok-input {
+    background-color: #FFFFFF;
+    border: solid 1px #FE2C55;
+}
+
+

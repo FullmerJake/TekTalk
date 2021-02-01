@@ -46,6 +46,7 @@ const AddComment = ({ postId }) => {
             type="comment-text"
              value={commentText}
              onChange={handleChange}
+             id="tiktok-input"
          />
          <p className={`m-0 ${characterCount === 300 ? 'text-error' : ''}`}>
          Character Count: {characterCount}/300</p>
@@ -54,6 +55,7 @@ const AddComment = ({ postId }) => {
       <Button
         onClick={handleSubmit}
         colorScheme="blue"
+        id="tiktok-btn"
       >
           Submit
       </Button>

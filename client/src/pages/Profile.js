@@ -31,7 +31,7 @@ const Profile = props => {
       <Heading as="h2" size="3xl">{userParam ? `${user.username}` : 'My Profile'}</Heading>
       <Heading as="h2" size="xl">Posts:</Heading>
       <Post posts={user.posts} />
-      <AddNewPost/>
+      <AddNewPost />
     </Box>
   );
 }
