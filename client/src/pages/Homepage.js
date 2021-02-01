@@ -11,7 +11,7 @@ const Homepage = () => {
   const posts = data?.posts || [];
 
     return (
-        <Box p={4} rounded="md" w="80%" margin="auto">
+        <Box p={4} rounded="md" w="70%" margin="auto">
             <Heading as="h2" size="2xl" textDecoration="underline">Recent Posts</Heading>
             <Post posts={posts} />
         </Box>

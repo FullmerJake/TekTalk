@@ -20,10 +20,10 @@ const SinglePost = () => {
   const post = data?.post || {};
 
   return (
-    <Box p={4} rounded="md" w="80%" margin="auto">
+    <Box p={4} rounded="md" w="70%" margin="auto">
       <Box bg="gray.100" p={4} rounded="md" w="100%" margin="15px">
           <Heading as="h2" size="3xl" textDecoration="underline">{post.postTitle}</Heading>
-          <Text>{post.postText}</Text>
+          <Text py={10}>{post.postText}</Text>
           <Text>
             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
           {' '}posted on {post.createdAt}</Text>
