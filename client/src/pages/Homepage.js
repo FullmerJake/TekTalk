@@ -5,7 +5,6 @@ import Post from '../components/post';
 import { Box, Heading } from '@chakra-ui/core';
 
 
-
 const Homepage = () => {
   const { data } = useQuery(QUERY_POSTS);
 

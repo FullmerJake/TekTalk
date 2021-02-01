@@ -22,8 +22,8 @@ const client = new ApolloClient({
   uri: '/graphql'
 });
 
-const  App = () => {
 
+function App() {
   return (
   <ApolloProvider client={client}>
     <Router>

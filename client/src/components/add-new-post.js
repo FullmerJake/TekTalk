@@ -1,3 +1,7 @@
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_POST } from '../utils/mutations';
+import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
 import {
     Button, 
     FormControl,
@@ -12,30 +16,63 @@ import {
     ModalOverlay,
     HStack,
     useDisclosure,
+    Input
 } from '@chakra-ui/core';
 
-import React, {useState} from 'react';
 
-// AddNewPost component resonsible for opening a modal to add a new post. 
+
 const AddNewPost = () => {
-    // Chakra's useDisclosure hook to help handle common open, close or toggle scenarios.
+
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [title, setTitle] = useState("");
-    const [isSaving] = useState(false);
+    const [ postTitle, setTitle] = useState("");
+    const [ postText, setText] = useState("");
+    const [characterCount, setCharacterCount] = useState(0);
 
-    const handleSubmit = async() => {
-        const date = new Date();
+    const [addPost, { error }] = useMutation(ADD_POST, {
+        update(cache, { data: { addPost } }) {
+            try {
+                const { posts } = cache.readQuery({ query: QUERY_POSTS });
+                cache.writeQuery({
+                    query: QUERY_POSTS,
+                    data: { posts: [addPost, ...posts] }
+                });
+            } catch (e) {
+                console.error(e);
+            }
+            const { me } = cache.readQuery({ query: QUERY_ME });
+            cache.writeQuery({
+                query: QUERY_ME,
+                data: { me: {...me, posts: [...me.posts, addPost ] } }
+            });
+        }
+    });
 
-        await db.collection("posts").add({
-            title, 
-            upVotesCount: 0,
-            downVoteCount: 0,
-            createdAt: date.toUTCString(),
-            updatedAt: date.toUTCString(),
-        });
+    const handleChangeTitle = event => {
+        setTitle(event.target.value)
+    };
 
-        onClose();
-        setTitle("");
+    const handleChange = event => {
+        if(event.target.value.length <= 1500) {
+            setText(event.target.value);
+            setCharacterCount(event.target.value.length);
+        }
+    };
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        setTitle(event.target.value);
+
+        try {
+            await addPost({
+                variables: { postTitle, postText }
+            });
+
+            setTitle('');
+            setText('');
+            setCharacterCount(0);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -50,13 +87,21 @@ const AddNewPost = () => {
                         <ModalHeader>Add new Post</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
-                            <FormControl id="post-title">
+                            <FormControl id="post-text">
                                 <FormLabel>Post Title</FormLabel>
-                                <Textarea 
+                                <Input 
                                     type="post-title"
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
+                                    value={postTitle}
+                                    onChange={handleChangeTitle}
                                 />
+                                <Textarea 
+                                    type="post-text"
+                                    value={postText}
+                                    onChange={handleChange}
+                                />
+                                <p className={`m-0 ${characterCount === 1500 ? 'text-error' : ''}`}>
+                                Character Count: {characterCount}/1500</p>
+                                {error && <span className="ml-2">{''}You must add text to your post!</span>}
                             </FormControl>
                         </ModalBody>
                         <ModalFooter>
@@ -65,8 +110,6 @@ const AddNewPost = () => {
                                 <Button
                                     onClick={handleSubmit}
                                     colorScheme="blue"
-                                    // disabled={!title.trim()}
-                                    isLoading={isSaving}
                                 >
                                     Save
                                 </Button>

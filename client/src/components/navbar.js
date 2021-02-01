@@ -1,8 +1,10 @@
 import { Box, Heading, Flex } from '@chakra-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddNewPost from '../components/add-new-post';
 
 import Auth from '../utils/auth';
+
 
 const Navbar = () => {
 
@@ -40,8 +42,10 @@ const Navbar = () => {
             >  
             {Auth.loggedIn() ? (
                 <>
+                    <p href="/" style={{ marginRight: 40 }}><AddNewPost/></p>
                     <Link to="/profile" style={{ marginRight: 40 }}>Profile</Link>
                     <a href="/" onClick={logout}>Logout</a>
+
                 </>
             ) : (
                 <>

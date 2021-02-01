@@ -14,7 +14,7 @@ const postSchema = new Schema(
       type: String, 
       required: 'You need to add text to your post!',
       minlength: 1,
-      maxlength: 280
+      maxlength: 1500
     }, 
     createdAt: {
       type: Date,
