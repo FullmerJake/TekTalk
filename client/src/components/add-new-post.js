@@ -74,17 +74,19 @@ const AddNewPost = () => {
             console.error(e);
         }
     };
+    
+    
 
     return (
         <>
             <Button onClick={onOpen} colorScheme="blue" id="tiktok-btn">
-                Add new post
+                Add New Post
             </Button>
 
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay>
                     <ModalContent>
-                        <ModalHeader id="tiktok-head">Add new Post</ModalHeader>
+                        <ModalHeader id="tiktok-head">Add New Post</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
                             <FormControl id="post-text">
