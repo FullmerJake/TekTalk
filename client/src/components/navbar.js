@@ -27,7 +27,7 @@ const Navbar = () => {
         >  
             <Flex align="center" mr={5}>
             <Link to="/">
-                <Heading as="h1" fontSize="100px" letterSpacing={"-.1rem"} >  
+                <Heading pb={10} as="h1" fontSize="100px" letterSpacing={"-.1rem"} >  
                     TekTalk  
                 </Heading> 
                 </Link> 

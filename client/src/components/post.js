@@ -19,7 +19,7 @@ const Post = ({ posts }) => {
                         <Heading as="h2" size="2xl" textDecoration="underline">
                             <Link to={`/post/${post._id}`}>{post.postTitle}</Link> 
                         </Heading>
-                        <Text>{post.postText}</Text>
+                        <Text py={10}>{post.postText}</Text>
                         <Text>
                             <Link to={`/profile/${post.username}`}>{post.username}</Link> 
                         {' '}posted on {post.createdAt}</Text>
